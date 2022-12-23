@@ -77,18 +77,18 @@
 <body>
     <table border="1" cellspacing="0">
         <tr>
-            <td colspan="7" class="header">Student Details</td>
+            <td colspan="7" class="header">Table Details</td>
         </tr>
         <tr>
-            <th>Sid</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Class</th>
-            <th>Phone</th>
+            <th>data-field</th>
+            <th>field</th>
+            <th>field</th>
+            <th>field</th>
+            <th>field</th>
         </tr>
         <?php
 
-            include '../connection.php';
+            include 'connection-file.php';
 
             if(isset($_GET['page'])){
                 $page = $_GET['page'];
@@ -98,7 +98,7 @@
             $limit = 3;
             $offset = ($page - 1)*$limit;
            
-            $sql = "select * from student join studentclass where student.sclass = studentclass.cid  LIMIT {$offset},{$limit}";
+            $sql = "select * from tb_name join join_tb where tbname.colname = tbname.colname  LIMIT {$offset},{$limit}";
             $result = mysqli_query($conn,$sql);
 
             if(mysqli_num_rows($result)>0)
@@ -107,11 +107,11 @@
                 {
 ?>
         <tr>
-            <td><?php echo $row['sid']; ?></td>
-            <td><?php echo $row['sname']; ?></td>
-            <td><?php echo $row['saddress']; ?></td>
-            <td><?php echo $row['sclass']; ?></td>
-            <td><?php echo $row['sphone']; ?></td>
+            <td><?php echo $row['field_name']; ?></td>
+            <td><?php echo $row['field_name']; ?></td>
+            <td><?php echo $row['field_name']; ?></td>
+            <td><?php echo $row['field_name']; ?></td>
+            <td><?php echo $row['field_name']; ?></td>
         </tr>
         <?php
       }
@@ -130,7 +130,7 @@
         ?>
         
         <?php
-            $sql2 = "select * from student join studentclass where student.sclass = studentclass.cid";
+            $sql2 = "select * from tb_name join tb_name where tb_name.field = tb_name.field";
             $result2 = mysqli_query($conn,$sql2);
 
             $row_count = mysqli_num_rows($result2);
